@@ -1,4 +1,4 @@
-var listOfMovies = [];
+var movieList = [];
 
 
 function Movie(title, length, genre) {
@@ -27,18 +27,18 @@ function createMovie() {
 
     var movie = new Movie(title, length, genre);
 
-    listOfMovies.push(movie);
+    movieList.push(movie);
     var date = Date();
     //ar dateDate =  date.getDate() + "." + (date.getMonth() + 1) + "." + date.getFullYear();
 
     document.getElementById("p1").innerHTML = title + ", " + length + 'min' + ", " + genre;
-    console.log(listOfMovies);
+    console.log(movieList);
     var movieDownList = document.querySelector("#movieDownList");
     var option = document.createElement("option")
-    option.value = listOfMovies.length - 1;
+    option.value = movieList.length - 1;
     option.textContent = movie.getData();
     movieDownList.appendChild(option);
-    document.getElementById("p2").innerHTML = date + ", " + listOfMovies.length + " movies" + ", duration: " + this.length;
+    document.getElementById("p2").innerHTML = date + ", " + movieList.length + " movies" + ", duration: " + this.length;
 
 
 

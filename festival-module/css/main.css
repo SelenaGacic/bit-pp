@@ -1,0 +1,12 @@
+input {
+    display: block;
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+
+.frame {
+    border: 2px solid black;
+width: 30%;
+margin: 0 auto;
+padding: 10px;
+}
