@@ -39,16 +39,26 @@
 
     Program.prototype.getData = function () {
         let sumLength = 0;
-        for (let i = 0; i < this.listOfMovies.length; i++) {
-            sumLength += this.listOfMovies[i].duration;
-        }
+
+        this.listOfMovies.forEach(function(element) {
+            sumLength += element.duration;
+          });
+
+        // for (let i = 0; i < this.listOfMovies.length; i++) {
+        //     sumLength += this.listOfMovies[i].duration;
+        // }
         let result = (`${this.date}, duration of festival is ${sumLength} minutes
         `);
 
-        for (let i = 0; i < this.listOfMovies.length; i++) {
-            result += (`    ${this.listOfMovies[i].getData()}
+        this.listOfMovies.forEach(function(element) {
+            result += (`    ${element.getData()}
             `);
-        }
+          });
+
+        // for (let i = 0; i < this.listOfMovies.length; i++) {
+        //     result += (`    ${this.listOfMovies[i].getData()}
+        //     `);
+        // }
 
         return result;
     }
@@ -66,6 +76,11 @@
     }
 
     Festival.prototype.getData = function () {
+
+        // this.listOfPrograms.forEach(function(element) {
+        //     this.numOfMovies += element.listOfMovies.length;
+        //   });
+
         for (let i = 0; i < this.listOfPrograms.length; i++) {
             this.numOfMovies += this.listOfPrograms[i].listOfMovies.length;
         }
