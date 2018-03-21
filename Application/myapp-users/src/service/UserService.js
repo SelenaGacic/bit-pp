@@ -4,12 +4,14 @@ import {User} from '../entities/User'
 class UserService {
 
     getData() {
-        return fetch('https://randomuser.me/api/?results=15')
+        return fetch('https://randomuser.me/api/?results=20')
             .then(result => {
                 return result.json();
 
             })
             .then(users => {
+                console.log(users);
+                
                 return users.results.map(user => {
                     return new User(user)
 

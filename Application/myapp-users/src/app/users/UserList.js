@@ -1,43 +1,31 @@
-import React, { Component } from "react"
-import PropTypes from "prop-types"
-
+import React from "react"
 import { UserItem } from "./UserItem"
-import { userService } from '../../service/UserService';
 
-export class UserList extends Component {
-    constructor(props) {
-        super(props);
+import { Grid } from "./Grid";
 
-        this.state = {
-            users: []
-        }
-    }
 
-    componentWillMount() {
-        console.log("before render");
-    }
 
-    componentDidMount() {
-        let users = userService.getData();
-        users
-            .then(myUsers => {
-                console.log(myUsers);
-                this.setState({users: myUsers})
-            })
-            .catch(err => {
-                console.log(err.message);
-            })
-    }
+export const UserList =(props) =>{
 
-    render() {
-        return (
-            <ul className="collection" >
-                {this.state.users.length !== 0 &&
-                    this.state.users.map((user, i) => {
-                        return <UserItem user={user} key={i} />
-                    })
-                }
-            </ul>
-        )
-    }
+    // const { users, listView } = props
+ 
+    return (
+        <ul className="collection" >
+            {
+                props.users.map((user, i) => {
+                  
+                    
+                    return props.listView 
+                        ? <UserItem user={user} key={i} /> 
+                        : <Grid user={user} key={i} />
+                })
+            }
+        </ul>
+    )
+
 }
+ 
+                    
+   
+   
+
